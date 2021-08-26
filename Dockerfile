@@ -23,7 +23,7 @@ RUN curl -sSL "https://github.com/RackTables/racktables/archive/RackTables-$VERS
 RUN sed -i -e 's|^listen =.*$|listen = 9000|' /etc/php7/php-fpm.d/www.conf
 RUN sed -i -e 's|^;daemonize = .*|daemonize = no|' /etc/php7/php-fpm.conf
 RUN echo 'php_admin_value[error_log] = /var/log/php7/$pool.error.log' >> /etc/php7/php-fpm.d/www.conf
-RUN echo 'error_log - /var/log/php7/error.log' >> /etc/php7/php-fpm.conf
+RUN echo 'error_log = /var/log/php7/error.log' >> /etc/php7/php-fpm.conf
 
 VOLUME /opt/racktables/wwwroot
 EXPOSE 80
