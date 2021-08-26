@@ -8,6 +8,7 @@ ENV VERSION="0.21.5" \
     DBNAME="racktables" \
     DBUSER="racktables" \
     DBPASS=""
+    DBPORT="3306"
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

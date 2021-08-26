@@ -2,12 +2,13 @@
 
 : "${DBNAME:=racktables}"
 : "${DBHOST:=mariadb}"
+: "${DBPORT:=3306}"
 : "${DBUSER:=racktables}"
 
 if [ ! -e /opt/racktables/wwwroot/inc/secret.php ]; then
     cat > /opt/racktables/wwwroot/inc/secret.php <<EOF
 <?php
-\$pdo_dsn = 'mysql:host=${DBHOST};dbname=${DBNAME}';
+\$pdo_dsn = 'mysql:host=${DBHOST};port=${DBPORT};dbname=${DBNAME}';
 \$db_username = '${DBUSER}';
 \$db_password = '${DBPASS}';
 \$user_auth_src = 'database';
