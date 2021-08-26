@@ -13,10 +13,15 @@ if [ ! -e /opt/racktables/wwwroot/inc/secret.php ]; then
 \$db_password = '${DBPASS}';
 \$user_auth_src = 'database';
 \$require_local_account = TRUE;
+\$pdo_= TRUE;
+
 # See https://wiki.racktables.org/index.php/RackTablesAdminGuide
 ?>
 EOF
 fi
+
+# Ugly hack to disable SSL cert verification
+sed -i 's/$dbxlink = new PDO ($pdo_dsn, $db_username, $db_password, $drvoptions);/$dbxlink = new PDO ($pdo_dsn, $db_username, $db_password, array(PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false));/g' /opt/racktables/wwwroot/inc/pre-init.php
 
 chmod 0400 /opt/racktables/wwwroot/inc/secret.php
 chown nobody:nogroup /opt/racktables/wwwroot/inc/secret.php
