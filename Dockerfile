@@ -7,7 +7,7 @@ ENV VERSION="0.21.5" \
     DBHOST="mariadb" \
     DBNAME="racktables" \
     DBUSER="racktables" \
-    DBPASS=""
+    DBPASS="" \
     DBPORT="3306"
 
 COPY entrypoint.sh /entrypoint.sh
