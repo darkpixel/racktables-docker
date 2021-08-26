@@ -22,4 +22,7 @@ chown nobody:nogroup /opt/racktables/wwwroot/inc/secret.php
 
 echo 'To initialize the db, first go to /?module=installer&step=5'
 
+nginx
+
+echo "$@"
 exec "$@"
